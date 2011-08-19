@@ -5259,3 +5259,881 @@ Rendering store/add_to_cart
 Rendered store/_cart_item (15.6ms)
 Rendered store/_cart (15.6ms)
 Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/store/add_to_cart/1]
+  [4;36;1mSQL (31.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateProducts (20110813024622)
+Migrating to AddPriceToProduct (20110813032056)
+Migrating to AddTestData (20110813045003)
+Migrating to CreateSessions (20110817080327)
+Migrating to CreateOrders (20110819013227)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (93.8ms)[0m   [0mCREATE TABLE "orders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "address" text, "email" varchar(255), "pay_type" varchar(10), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (78.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110819013227')[0m
+Migrating to CreateLineItems (20110819013421)
+  [4;35;1mSQL (62.5ms)[0m   [0mCREATE TABLE "line_items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "product_id" integer NOT NULL, "order_id" integer NOT NULL, "quantity" integer NOT NULL, "total_price" decimal(8,2) NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (62.5ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110819013421')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("line_items")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("orders")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("products")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("sessions")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_info('index_sessions_on_updated_at')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_info('index_sessions_on_session_id')[0m
+
+
+Processing StoreController#index (for 127.0.0.1 at 2011-08-19 11:20:41) [GET]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.0ms)
+Completed in 109ms (View: 78, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2011-08-19 11:21:27) [POST]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"a005f5a48b6d76a1bcf7bdc85d3b4d26f503e4d6", "id"=>"1"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (15.6ms)
+Rendered store/_cart (31.2ms)
+Completed in 31ms (View: 31, DB: 0) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2011-08-19 11:21:30) [POST]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"a005f5a48b6d76a1bcf7bdc85d3b4d26f503e4d6", "id"=>"3"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (15.6ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (15.6ms)
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2011-08-19 11:21:32) [POST]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"a005f5a48b6d76a1bcf7bdc85d3b4d26f503e4d6", "id"=>"1"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (0.0ms)
+Completed in 16ms (View: 16, DB: 16) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2011-08-19 11:21:33) [POST]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"a005f5a48b6d76a1bcf7bdc85d3b4d26f503e4d6", "id"=>"2"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (15.6ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (15.6ms)
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2011-08-19 11:21:34) [POST]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"a005f5a48b6d76a1bcf7bdc85d3b4d26f503e4d6", "id"=>"2"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (15.6ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (15.6ms)
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2011-08-19 11:21:35) [POST]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"a005f5a48b6d76a1bcf7bdc85d3b4d26f503e4d6", "id"=>"2"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (15.6ms)
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2011-08-19 11:21:35) [POST]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"a005f5a48b6d76a1bcf7bdc85d3b4d26f503e4d6", "id"=>"2"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (0.0ms)
+Completed in 0ms (View: 0, DB: 16) | 200 OK [http://localhost/store/add_to_cart/2]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2011-08-19 11:21:37) [POST]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  Parameters: {"authenticity_token"=>"a005f5a48b6d76a1bcf7bdc85d3b4d26f503e4d6"}
+Rendering template within layouts/store
+Rendering store/checkout
+
+
+ActionView::TemplateError (undefined method `error_message_for' for #<ActionView::Base:0x4743c48>) on line #2 of app/views/store/checkout.html.erb:
+1: <div class="depot-form">
+2: 	<%= error_message_for 'order' %>
+3: 	
+4: 	<% form_for :order, :url => { :action => :save_order } do |form| %>
+5: 	<fieldset>
+
+    app/views/store/checkout.html.erb:2
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_view/renderable.rb:39:in `send'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_view/renderable.rb:39:in `render'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_view/template.rb:73:in `render_template'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_view/base.rb:256:in `render'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_view/base.rb:369:in `_render_with_layout'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_view/base.rb:254:in `render'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:1177:in `render_for_file'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:896:in `render_without_benchmark'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.2.3/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:868:in `render_without_benchmark'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.2.3/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:1251:in `default_render'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:1257:in `perform_action_without_filters'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/filters.rb:617:in `call_filters'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/Ruby187/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-2.2.3/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-2.2.3/lib/active_record/query_cache.rb:8:in `cache'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:524:in `send'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:524:in `process_without_filters'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/session_management.rb:134:in `process'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:392:in `process'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:184:in `handle_request'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:112:in `dispatch_unlocked'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:125:in `dispatch'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:124:in `synchronize'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:124:in `dispatch'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:134:in `dispatch_cgi'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:41:in `dispatch'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/rails-2.2.3/lib/webrick_server.rb:103:in `handle_dispatch'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/rails-2.2.3/lib/webrick_server.rb:74:in `service'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/rails-2.2.3/lib/webrick_server.rb:60:in `dispatch'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/rails-2.2.3/lib/commands/servers/webrick.rb:66
+    C:/Ruby187/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:29:in `gem_original_require'
+    C:/Ruby187/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:29:in `require'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.2.3/lib/active_support/dependencies.rb:153:in `require'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.2.3/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.2.3/lib/active_support/dependencies.rb:153:in `require'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/rails-2.2.3/lib/commands/server.rb:49
+    C:/Ruby187/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:29:in `gem_original_require'
+    C:/Ruby187/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:29:in `require'
+    script/server:3
+
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/templates/rescues/_trace (31.2ms)
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/templates/rescues/_request_and_response (0.0ms)
+Rendering C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing StoreController#index (for 127.0.0.1 at 2011-08-19 11:23:20) [GET]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (15.6ms)
+Completed in 31ms (View: 31, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2011-08-19 11:23:51) [POST]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  Parameters: {"authenticity_token"=>"a005f5a48b6d76a1bcf7bdc85d3b4d26f503e4d6"}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (15.6ms)
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/store/checkout]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2011-08-19 11:26:40) [POST]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  Parameters: {"authenticity_token"=>"a005f5a48b6d76a1bcf7bdc85d3b4d26f503e4d6"}
+Rendering template within layouts/store
+Rendering store/checkout
+
+
+ActionView::TemplateError (undefined method `text' for #<ActionView::Helpers::FormBuilder:0x47b1790>) on line #17 of app/views/store/checkout.html.erb:
+14: 		</div>
+15: 		<div>
+16: 			<%= form.label :email, "E-mail:" %>
+17: 			<%= form.text.field :email, :size => 40 %>
+18: 		</div>
+19: 		<div>
+20: 			<%= form.label :pay_type, "Pay with:" %>
+
+    app/views/store/checkout.html.erb:17
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_view/helpers/form_helper.rb:313:in `fields_for'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_view/helpers/form_helper.rb:253:in `form_for'
+    app/views/store/checkout.html.erb:4
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_view/renderable.rb:39:in `send'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_view/renderable.rb:39:in `render'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_view/template.rb:73:in `render_template'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_view/base.rb:256:in `render'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_view/base.rb:369:in `_render_with_layout'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_view/base.rb:254:in `render'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:1177:in `render_for_file'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:896:in `render_without_benchmark'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.2.3/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:868:in `render_without_benchmark'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.2.3/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:1251:in `default_render'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:1257:in `perform_action_without_filters'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/filters.rb:617:in `call_filters'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/Ruby187/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-2.2.3/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-2.2.3/lib/active_record/query_cache.rb:8:in `cache'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:524:in `send'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:524:in `process_without_filters'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/session_management.rb:134:in `process'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:392:in `process'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:184:in `handle_request'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:112:in `dispatch_unlocked'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:125:in `dispatch'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:124:in `synchronize'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:124:in `dispatch'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:134:in `dispatch_cgi'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:41:in `dispatch'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/rails-2.2.3/lib/webrick_server.rb:103:in `handle_dispatch'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/rails-2.2.3/lib/webrick_server.rb:74:in `service'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/rails-2.2.3/lib/webrick_server.rb:60:in `dispatch'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/rails-2.2.3/lib/commands/servers/webrick.rb:66
+    C:/Ruby187/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:29:in `gem_original_require'
+    C:/Ruby187/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:29:in `require'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.2.3/lib/active_support/dependencies.rb:153:in `require'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.2.3/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.2.3/lib/active_support/dependencies.rb:153:in `require'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/rails-2.2.3/lib/commands/server.rb:49
+    C:/Ruby187/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:29:in `gem_original_require'
+    C:/Ruby187/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:29:in `require'
+    script/server:3
+
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/templates/rescues/_trace (31.2ms)
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/templates/rescues/_request_and_response (0.0ms)
+Rendering C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2011-08-19 11:27:00) [POST]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  Parameters: {"authenticity_token"=>"a005f5a48b6d76a1bcf7bdc85d3b4d26f503e4d6"}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (15.6ms)
+Completed in 31ms (View: 31, DB: 0) | 200 OK [http://localhost/store/checkout]
+
+
+Processing StoreController#save_order (for 127.0.0.1 at 2011-08-19 11:27:09) [POST]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  Parameters: {"commit"=>"Place Order", "authenticity_token"=>"a005f5a48b6d76a1bcf7bdc85d3b4d26f503e4d6", "order"=>{"address"=>"", "name"=>"", "pay_type"=>"", "email"=>""}}
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+NoMethodError (undefined method `form_cart_item' for #<Class:0x46a8f50>):
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-2.2.3/lib/active_record/base.rb:1835:in `method_missing'
+    /app/models/order.rb:15:in `add_line_items_from_cart'
+    /app/models/order.rb:14:in `each'
+    /app/models/order.rb:14:in `add_line_items_from_cart'
+    /app/controllers/store_controller.rb:5:in `save_order'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:1256:in `send'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:1256:in `perform_action_without_filters'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/filters.rb:617:in `call_filters'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/Ruby187/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-2.2.3/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-2.2.3/lib/active_record/query_cache.rb:8:in `cache'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:524:in `send'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:524:in `process_without_filters'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/session_management.rb:134:in `process'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:392:in `process'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:184:in `handle_request'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:112:in `dispatch_unlocked'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:125:in `dispatch'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:124:in `synchronize'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:124:in `dispatch'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:134:in `dispatch_cgi'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:41:in `dispatch'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/rails-2.2.3/lib/webrick_server.rb:103:in `handle_dispatch'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/rails-2.2.3/lib/webrick_server.rb:74:in `service'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/rails-2.2.3/lib/webrick_server.rb:60:in `dispatch'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/rails-2.2.3/lib/commands/servers/webrick.rb:66
+    C:/Ruby187/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:29:in `gem_original_require'
+    C:/Ruby187/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:29:in `require'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.2.3/lib/active_support/dependencies.rb:153:in `require'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.2.3/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.2.3/lib/active_support/dependencies.rb:153:in `require'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/rails-2.2.3/lib/commands/server.rb:49
+    C:/Ruby187/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:29:in `gem_original_require'
+    C:/Ruby187/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:29:in `require'
+    script/server:3
+
+  [4;36;1mSQL (15.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/templates/rescues/_trace (93.8ms)
+Rendered C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/templates/rescues/_request_and_response (15.6ms)
+Rendering C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing StoreController#save_order (for 127.0.0.1 at 2011-08-19 11:28:28) [POST]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  Parameters: {"commit"=>"Place Order", "authenticity_token"=>"a005f5a48b6d76a1bcf7bdc85d3b4d26f503e4d6", "order"=>{"address"=>"", "name"=>"", "pay_type"=>"", "email"=>""}}
+Rendering template within layouts/store
+Rendering store/#<Order:0x47e3920>
+
+
+ActionView::MissingTemplate (Missing template store/#<Order:0x47e3920>.erb in view path C:/work/depot2/app/views:):
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_view/template.rb:95:in `find_full_path'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_view/template.rb:16:in `initialize'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_view/base.rb:334:in `new'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_view/base.rb:334:in `_unmemoized__pick_template'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.2.3/lib/active_support/memoizable.rb:70:in `_pick_template'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_view/base.rb:256:in `render'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_view/base.rb:369:in `_render_with_layout'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_view/base.rb:254:in `render'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:1177:in `render_for_file'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:905:in `render_without_benchmark'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.2.3/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/benchmarking.rb:51:in `render'
+    /app/controllers/store_controller.rb:10:in `save_order'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:1256:in `send'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:1256:in `perform_action_without_filters'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/filters.rb:617:in `call_filters'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/Ruby187/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-2.2.3/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-2.2.3/lib/active_record/query_cache.rb:8:in `cache'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:524:in `send'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:524:in `process_without_filters'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/session_management.rb:134:in `process'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:392:in `process'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:184:in `handle_request'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:112:in `dispatch_unlocked'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:125:in `dispatch'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:124:in `synchronize'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:124:in `dispatch'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:134:in `dispatch_cgi'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:41:in `dispatch'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/rails-2.2.3/lib/webrick_server.rb:103:in `handle_dispatch'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/rails-2.2.3/lib/webrick_server.rb:74:in `service'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/rails-2.2.3/lib/webrick_server.rb:60:in `dispatch'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/rails-2.2.3/lib/commands/servers/webrick.rb:66
+    C:/Ruby187/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:29:in `gem_original_require'
+    C:/Ruby187/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:29:in `require'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.2.3/lib/active_support/dependencies.rb:153:in `require'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.2.3/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.2.3/lib/active_support/dependencies.rb:153:in `require'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/rails-2.2.3/lib/commands/server.rb:49
+    C:/Ruby187/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:29:in `gem_original_require'
+    C:/Ruby187/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:29:in `require'
+    script/server:3
+
+Rendering C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2011-08-19 11:29:09) [POST]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  Parameters: {"authenticity_token"=>"a005f5a48b6d76a1bcf7bdc85d3b4d26f503e4d6"}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (15.6ms)
+Completed in 31ms (View: 16, DB: 16) | 200 OK [http://localhost/store/checkout]
+
+
+Processing StoreController#save_order (for 127.0.0.1 at 2011-08-19 11:29:12) [POST]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  Parameters: {"commit"=>"Place Order", "authenticity_token"=>"a005f5a48b6d76a1bcf7bdc85d3b4d26f503e4d6", "order"=>{"address"=>"", "name"=>"", "pay_type"=>"", "email"=>""}}
+Rendering template within layouts/store
+Rendering store/#<Order:0x48d4aa8>
+
+
+ActionView::MissingTemplate (Missing template store/#<Order:0x48d4aa8>.erb in view path C:/work/depot2/app/views:):
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_view/template.rb:95:in `find_full_path'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_view/template.rb:16:in `initialize'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_view/base.rb:334:in `new'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_view/base.rb:334:in `_unmemoized__pick_template'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.2.3/lib/active_support/memoizable.rb:70:in `_pick_template'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_view/base.rb:256:in `render'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_view/base.rb:369:in `_render_with_layout'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_view/base.rb:254:in `render'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:1177:in `render_for_file'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:905:in `render_without_benchmark'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.2.3/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/benchmarking.rb:51:in `render'
+    /app/controllers/store_controller.rb:10:in `save_order'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:1256:in `send'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:1256:in `perform_action_without_filters'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/filters.rb:617:in `call_filters'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/Ruby187/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-2.2.3/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-2.2.3/lib/active_record/query_cache.rb:8:in `cache'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:524:in `send'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:524:in `process_without_filters'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/session_management.rb:134:in `process'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:392:in `process'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:184:in `handle_request'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:112:in `dispatch_unlocked'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:125:in `dispatch'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:124:in `synchronize'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:124:in `dispatch'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:134:in `dispatch_cgi'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:41:in `dispatch'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/rails-2.2.3/lib/webrick_server.rb:103:in `handle_dispatch'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/rails-2.2.3/lib/webrick_server.rb:74:in `service'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/rails-2.2.3/lib/webrick_server.rb:60:in `dispatch'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/rails-2.2.3/lib/commands/servers/webrick.rb:66
+    C:/Ruby187/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:29:in `gem_original_require'
+    C:/Ruby187/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:29:in `require'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.2.3/lib/active_support/dependencies.rb:153:in `require'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.2.3/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.2.3/lib/active_support/dependencies.rb:153:in `require'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/rails-2.2.3/lib/commands/server.rb:49
+    C:/Ruby187/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:29:in `gem_original_require'
+    C:/Ruby187/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:29:in `require'
+    script/server:3
+
+Rendering C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing StoreController#index (for 127.0.0.1 at 2011-08-19 11:29:18) [GET]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (0.0ms)
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2011-08-19 11:29:21) [POST]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  Parameters: {"authenticity_token"=>"a005f5a48b6d76a1bcf7bdc85d3b4d26f503e4d6"}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (15.6ms)
+Rendered store/_cart (15.6ms)
+Completed in 31ms (View: 31, DB: 0) | 200 OK [http://localhost/store/checkout]
+
+
+Processing StoreController#save_order (for 127.0.0.1 at 2011-08-19 11:29:22) [POST]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  Parameters: {"commit"=>"Place Order", "authenticity_token"=>"a005f5a48b6d76a1bcf7bdc85d3b4d26f503e4d6", "order"=>{"address"=>"", "name"=>"", "pay_type"=>"", "email"=>""}}
+Rendering template within layouts/store
+Rendering store/#<Order:0x4613aa8>
+
+
+ActionView::MissingTemplate (Missing template store/#<Order:0x4613aa8>.erb in view path C:/work/depot2/app/views:):
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_view/template.rb:95:in `find_full_path'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_view/template.rb:16:in `initialize'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_view/base.rb:334:in `new'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_view/base.rb:334:in `_unmemoized__pick_template'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.2.3/lib/active_support/memoizable.rb:70:in `_pick_template'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_view/base.rb:256:in `render'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_view/base.rb:369:in `_render_with_layout'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_view/base.rb:254:in `render'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:1177:in `render_for_file'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:905:in `render_without_benchmark'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.2.3/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/benchmarking.rb:51:in `render'
+    /app/controllers/store_controller.rb:10:in `save_order'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:1256:in `send'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:1256:in `perform_action_without_filters'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/filters.rb:617:in `call_filters'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/Ruby187/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-2.2.3/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-2.2.3/lib/active_record/query_cache.rb:8:in `cache'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:524:in `send'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:524:in `process_without_filters'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/session_management.rb:134:in `process'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/base.rb:392:in `process'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:184:in `handle_request'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:112:in `dispatch_unlocked'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:125:in `dispatch'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:124:in `synchronize'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:124:in `dispatch'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:134:in `dispatch_cgi'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/dispatcher.rb:41:in `dispatch'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/rails-2.2.3/lib/webrick_server.rb:103:in `handle_dispatch'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/rails-2.2.3/lib/webrick_server.rb:74:in `service'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/rails-2.2.3/lib/webrick_server.rb:60:in `dispatch'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/rails-2.2.3/lib/commands/servers/webrick.rb:66
+    C:/Ruby187/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:29:in `gem_original_require'
+    C:/Ruby187/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:29:in `require'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.2.3/lib/active_support/dependencies.rb:153:in `require'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.2.3/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.2.3/lib/active_support/dependencies.rb:153:in `require'
+    C:/Ruby187/lib/ruby/gems/1.8/gems/rails-2.2.3/lib/commands/server.rb:49
+    C:/Ruby187/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:29:in `gem_original_require'
+    C:/Ruby187/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:29:in `require'
+    script/server:3
+
+Rendering C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.2.3/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2011-08-19 11:34:27) [POST]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  Parameters: {"authenticity_token"=>"a005f5a48b6d76a1bcf7bdc85d3b4d26f503e4d6"}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (15.6ms)
+Completed in 31ms (View: 31, DB: 0) | 200 OK [http://localhost/store/checkout]
+
+
+Processing StoreController#save_order (for 127.0.0.1 at 2011-08-19 11:34:29) [POST]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  Parameters: {"commit"=>"Place Order", "authenticity_token"=>"a005f5a48b6d76a1bcf7bdc85d3b4d26f503e4d6", "order"=>{"address"=>"", "name"=>"", "pay_type"=>"", "email"=>""}}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (0.0ms)
+Completed in 62ms (View: 47, DB: 0) | 200 OK [http://localhost/store/save_order]
+
+
+Processing StoreController#save_order (for 127.0.0.1 at 2011-08-19 11:34:41) [POST]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  Parameters: {"commit"=>"Place Order", "authenticity_token"=>"a005f5a48b6d76a1bcf7bdc85d3b4d26f503e4d6", "order"=>{"address"=>"", "name"=>"", "pay_type"=>"check", "email"=>""}}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (0.0ms)
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/store/save_order]
+
+
+Processing StoreController#save_order (for 127.0.0.1 at 2011-08-19 11:35:34) [POST]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  Parameters: {"commit"=>"Place Order", "authenticity_token"=>"a005f5a48b6d76a1bcf7bdc85d3b4d26f503e4d6", "order"=>{"address"=>"123 Main St", "name"=>"mikerzhou", "pay_type"=>"check", "email"=>"mikerzhou"}}
+  [4;36;1mOrder Create (0.0ms)[0m   [0;1mINSERT INTO "orders" ("name", "address", "created_at", "updated_at", "pay_type", "email") VALUES('mikerzhou', '123 Main St', '2011-08-19 03:35:34', '2011-08-19 03:35:34', 'check', 'mikerzhou')[0m
+  [4;35;1mLineItem Create (0.0ms)[0m   [0mINSERT INTO "line_items" ("created_at", "product_id", "quantity", "order_id", "total_price", "updated_at") VALUES('2011-08-19 03:35:34', 1, 2, 1, 59.9, '2011-08-19 03:35:34')[0m
+  [4;36;1mLineItem Create (0.0ms)[0m   [0;1mINSERT INTO "line_items" ("created_at", "product_id", "quantity", "order_id", "total_price", "updated_at") VALUES('2011-08-19 03:35:34', 3, 1, 1, 27.75, '2011-08-19 03:35:34')[0m
+  [4;35;1mLineItem Create (0.0ms)[0m   [0mINSERT INTO "line_items" ("created_at", "product_id", "quantity", "order_id", "total_price", "updated_at") VALUES('2011-08-19 03:35:34', 2, 4, 1, 114.0, '2011-08-19 03:35:34')[0m
+Redirected to actionindex
+Completed in 250ms (DB: 0) | 302 Found [http://localhost/store/save_order]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2011-08-19 11:36:09) [GET]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.0ms)
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2011-08-19 11:44:48) [POST]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"a005f5a48b6d76a1bcf7bdc85d3b4d26f503e4d6", "id"=>"1"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (0.0ms)
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2011-08-19 11:45:00) [POST]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"a005f5a48b6d76a1bcf7bdc85d3b4d26f503e4d6", "id"=>"1"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (0.0ms)
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2011-08-19 11:47:45) [POST]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"a005f5a48b6d76a1bcf7bdc85d3b4d26f503e4d6", "id"=>"1"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (15.6ms)
+Rendered store/_cart (15.6ms)
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2011-08-19 11:47:48) [POST]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"a005f5a48b6d76a1bcf7bdc85d3b4d26f503e4d6", "id"=>"1"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (0.0ms)
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2011-08-19 11:47:50) [POST]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"a005f5a48b6d76a1bcf7bdc85d3b4d26f503e4d6", "id"=>"1"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (0.0ms)
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2011-08-19 11:47:51) [POST]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"a005f5a48b6d76a1bcf7bdc85d3b4d26f503e4d6", "id"=>"1"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (15.6ms)
+Rendered store/_cart (15.6ms)
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2011-08-19 11:47:52) [POST]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"a005f5a48b6d76a1bcf7bdc85d3b4d26f503e4d6", "id"=>"1"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (15.6ms)
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2011-08-19 11:47:52) [POST]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"a005f5a48b6d76a1bcf7bdc85d3b4d26f503e4d6", "id"=>"1"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (15.6ms)
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2011-08-19 11:47:53) [POST]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"a005f5a48b6d76a1bcf7bdc85d3b4d26f503e4d6", "id"=>"1"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (62.5ms)
+Rendered store/_cart (62.5ms)
+Completed in 94ms (View: 78, DB: 0) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2011-08-19 11:48:24) [POST]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"a005f5a48b6d76a1bcf7bdc85d3b4d26f503e4d6", "id"=>"1"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (15.6ms)
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2011-08-19 11:48:24) [POST]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"a005f5a48b6d76a1bcf7bdc85d3b4d26f503e4d6", "id"=>"1"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (15.6ms)
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2011-08-19 11:48:24) [POST]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"a005f5a48b6d76a1bcf7bdc85d3b4d26f503e4d6", "id"=>"1"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (15.6ms)
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2011-08-19 11:48:24) [POST]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"a005f5a48b6d76a1bcf7bdc85d3b4d26f503e4d6", "id"=>"1"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (0.0ms)
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2011-08-19 11:48:24) [POST]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"a005f5a48b6d76a1bcf7bdc85d3b4d26f503e4d6", "id"=>"3"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (15.6ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (15.6ms)
+Completed in 31ms (View: 31, DB: 0) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2011-08-19 11:48:25) [GET]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (15.6ms)
+Completed in 94ms (View: 94, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#empty_cart (for 127.0.0.1 at 2011-08-19 11:48:31) [POST]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  Parameters: {"authenticity_token"=>"a005f5a48b6d76a1bcf7bdc85d3b4d26f503e4d6"}
+Redirected to actionindex
+Completed in 0ms (DB: 0) | 302 Found [http://localhost/store/empty_cart]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2011-08-19 11:48:31) [GET]
+  Session ID: e52b5e8ee5e6e2eece5a3868059f71b0
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.0ms)
+Completed in 62ms (View: 31, DB: 0) | 200 OK [http://localhost/store]
