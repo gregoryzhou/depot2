@@ -6864,3 +6864,210 @@ Rendering template within layouts/store
 Rendering store/index
 Rendered store/_cart (0.0ms)
 Completed in 78ms (View: 78, DB: 0) | 200 OK [http://localhost/store]
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+  [4;35;1mOrder Load (0.0ms)[0m   [0mSELECT "orders".* FROM "orders" INNER JOIN line_items ON orders.id = line_items.order_id WHERE (("line_items".product_id = 2)) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "orders" INNER JOIN line_items ON orders.id = line_items.order_id WHERE (("line_items".product_id = 2)) [0m
+
+
+Processing InfoController#who_bought (for 127.0.0.1 at 2011-08-23 14:56:18) [GET]
+  Session ID: 05d7a25fb0922f0edf19d448bdf3bea3
+  Parameters: {"id"=>"2"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering info/who_bought
+  [4;35;1mOrder Load (0.0ms)[0m   [0mSELECT "orders".* FROM "orders" INNER JOIN line_items ON orders.id = line_items.order_id WHERE (("line_items".product_id = 2)) [0m
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/info/who_bought/2]
+
+
+Processing InfoController#who_bought (for 127.0.0.1 at 2011-08-23 14:56:23) [GET]
+  Session ID: 05d7a25fb0922f0edf19d448bdf3bea3
+  Parameters: {"id"=>"2"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering info/who_bought
+  [4;35;1mOrder Load (0.0ms)[0m   [0mSELECT "orders".* FROM "orders" INNER JOIN line_items ON orders.id = line_items.order_id WHERE (("line_items".product_id = 2)) [0m
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/info/who_bought/2]
+
+
+Processing InfoController#who_bought (for 127.0.0.1 at 2011-08-23 14:56:24) [GET]
+  Session ID: 05d7a25fb0922f0edf19d448bdf3bea3
+  Parameters: {"id"=>"2"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering info/who_bought
+  [4;35;1mOrder Load (0.0ms)[0m   [0mSELECT "orders".* FROM "orders" INNER JOIN line_items ON orders.id = line_items.order_id WHERE (("line_items".product_id = 2)) [0m
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/info/who_bought/2]
+
+
+Processing InfoController#who_bought (for 127.0.0.1 at 2011-08-23 14:56:25) [GET]
+  Session ID: 05d7a25fb0922f0edf19d448bdf3bea3
+  Parameters: {"id"=>"2"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering info/who_bought
+  [4;35;1mOrder Load (0.0ms)[0m   [0mSELECT "orders".* FROM "orders" INNER JOIN line_items ON orders.id = line_items.order_id WHERE (("line_items".product_id = 2)) [0m
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/info/who_bought/2]
+
+
+Processing InfoController#who_bought (for 127.0.0.1 at 2011-08-23 14:56:38) [GET]
+  Session ID: 6d84d6c214df13a2c8eb9dc713692d0d
+  Parameters: {"id"=>"2"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering info/who_bought
+  [4;35;1mOrder Load (0.0ms)[0m   [0mSELECT "orders".* FROM "orders" INNER JOIN line_items ON orders.id = line_items.order_id WHERE (("line_items".product_id = 2)) [0m
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/info/who_bought/2]
+
+
+Processing InfoController#who_bought (for 127.0.0.1 at 2011-08-23 14:57:20) [GET]
+  Session ID: 05d7a25fb0922f0edf19d448bdf3bea3
+  Parameters: {"id"=>"2"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering info/who_bought
+  [4;35;1mOrder Load (0.0ms)[0m   [0mSELECT "orders".* FROM "orders" INNER JOIN line_items ON orders.id = line_items.order_id WHERE (("line_items".product_id = 2)) [0m
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/info/who_bought/2]
+
+
+Processing InfoController#who_bought (for 127.0.0.1 at 2011-08-23 14:57:28) [GET]
+  Session ID: 05d7a25fb0922f0edf19d448bdf3bea3
+  Parameters: {"id"=>"2"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering info/who_bought
+  [4;35;1mOrder Load (0.0ms)[0m   [0mSELECT "orders".* FROM "orders" INNER JOIN line_items ON orders.id = line_items.order_id WHERE (("line_items".product_id = 2)) [0m
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/info/who_bought/2]
+
+
+Processing InfoController#who_bought (for 127.0.0.1 at 2011-08-23 15:03:18) [GET]
+  Session ID: 05d7a25fb0922f0edf19d448bdf3bea3
+  Parameters: {"id"=>"2"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering template within layouts/store
+Rendering info/who_bought
+  [4;35;1mOrder Load (0.0ms)[0m   [0mSELECT "orders".* FROM "orders" INNER JOIN line_items ON orders.id = line_items.order_id WHERE (("line_items".product_id = 2)) [0m
+Completed in 62ms (View: 47, DB: 0) | 200 OK [http://localhost/info/who_bought/2]
+
+
+Processing InfoController#who_bought (for 127.0.0.1 at 2011-08-23 15:03:25) [GET]
+  Session ID: 6d84d6c214df13a2c8eb9dc713692d0d
+  Parameters: {"id"=>"2"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering template within layouts/store
+Rendering info/who_bought
+  [4;35;1mOrder Load (0.0ms)[0m   [0mSELECT "orders".* FROM "orders" INNER JOIN line_items ON orders.id = line_items.order_id WHERE (("line_items".product_id = 2)) [0m
+Completed in 125ms (View: 47, DB: 0) | 200 OK [http://localhost/info/who_bought/2]
+
+
+Processing InfoController#who_bought (for 127.0.0.1 at 2011-08-23 15:04:08) [GET]
+  Session ID: 05d7a25fb0922f0edf19d448bdf3bea3
+  Parameters: {"id"=>"2"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering template within layouts/store
+Rendering info/who_bought
+  [4;35;1mOrder Load (0.0ms)[0m   [0mSELECT "orders".* FROM "orders" INNER JOIN line_items ON orders.id = line_items.order_id WHERE (("line_items".product_id = 2)) [0m
+Completed in 31ms (View: 16, DB: 16) | 200 OK [http://localhost/info/who_bought/2]
+
+
+Processing InfoController#who_bought (for 127.0.0.1 at 2011-08-23 15:04:09) [GET]
+  Session ID: 6d84d6c214df13a2c8eb9dc713692d0d
+  Parameters: {"id"=>"2"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering template within layouts/store
+Rendering info/who_bought
+  [4;35;1mOrder Load (0.0ms)[0m   [0mSELECT "orders".* FROM "orders" INNER JOIN line_items ON orders.id = line_items.order_id WHERE (("line_items".product_id = 2)) [0m
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/info/who_bought/2]
+
+
+Processing InfoController#who_bought to xml (for 127.0.0.1 at 2011-08-23 15:08:25) [GET]
+  Session ID: 05d7a25fb0922f0edf19d448bdf3bea3
+  Parameters: {"id"=>"2"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering info/who_bought
+  [4;35;1mOrder Load (0.0ms)[0m   [0mSELECT "orders".* FROM "orders" INNER JOIN line_items ON orders.id = line_items.order_id WHERE (("line_items".product_id = 2)) [0m
+Completed in 94ms (View: 62, DB: 0) | 200 OK [http://localhost/info/who_bought/2.xml]
+
+
+Processing InfoController#who_bought to xml (for 127.0.0.1 at 2011-08-23 15:08:32) [GET]
+  Session ID: 6d84d6c214df13a2c8eb9dc713692d0d
+  Parameters: {"id"=>"2"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering info/who_bought
+  [4;35;1mOrder Load (0.0ms)[0m   [0mSELECT "orders".* FROM "orders" INNER JOIN line_items ON orders.id = line_items.order_id WHERE (("line_items".product_id = 2)) [0m
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/info/who_bought/2.xml]
+
+
+Processing InfoController#who_bought to html (for 127.0.0.1 at 2011-08-23 15:08:36) [GET]
+  Session ID: 6d84d6c214df13a2c8eb9dc713692d0d
+  Parameters: {"id"=>"2"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering template within layouts/store
+Rendering info/who_bought
+  [4;35;1mOrder Load (0.0ms)[0m   [0mSELECT "orders".* FROM "orders" INNER JOIN line_items ON orders.id = line_items.order_id WHERE (("line_items".product_id = 2)) [0m
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/info/who_bought/2.html]
+
+
+Processing InfoController#who_bought to atom (for 127.0.0.1 at 2011-08-23 15:55:47) [GET]
+  Session ID: 6d84d6c214df13a2c8eb9dc713692d0d
+  Parameters: {"id"=>"2"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Completed in 16ms (View: 0, DB: 0) | 406 Not Acceptable [http://localhost/info/who_bought/2.atom]
+
+
+Processing InfoController#who_bought to atom (for 127.0.0.1 at 2011-08-23 15:56:03) [GET]
+  Session ID: 05d7a25fb0922f0edf19d448bdf3bea3
+  Parameters: {"id"=>"2"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Completed in 47ms (View: 0, DB: 0) | 406 Not Acceptable [http://localhost/info/who_bought/2.atom]
+
+
+Processing InfoController#who_bought (for 127.0.0.1 at 2011-08-23 16:16:07) [GET]
+  Session ID: 05d7a25fb0922f0edf19d448bdf3bea3
+  Parameters: {"id"=>"2"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering template within layouts/store
+Rendering info/who_bought
+  [4;35;1mOrder Load (0.0ms)[0m   [0mSELECT "orders".* FROM "orders" INNER JOIN line_items ON orders.id = line_items.order_id WHERE (("line_items".product_id = 2)) [0m
+Completed in 172ms (View: 94, DB: 0) | 200 OK [http://localhost/info/who_bought/2]
+
+
+Processing InfoController#who_bought to atom (for 127.0.0.1 at 2011-08-23 16:28:57) [GET]
+  Session ID: 85180841aa300c7a77072e8b471bbad7
+  Parameters: {"id"=>"3"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Completed in 0ms (View: 0, DB: 0) | 406 Not Acceptable [http://localhost/info/who_bought/3.atom]
+
+
+Processing InfoController#who_bought to atom (for 127.0.0.1 at 2011-08-23 16:30:03) [GET]
+  Session ID: 7f32ea638a71df8d1dab84846242de23
+  Parameters: {"id"=>"3"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering info/who_bought
+  [4;36;1mOrder Load (0.0ms)[0m   [0;1mSELECT "orders".* FROM "orders" INNER JOIN line_items ON orders.id = line_items.order_id WHERE (("line_items".product_id = 3)) LIMIT 1[0m
+  [4;35;1mOrder Load (0.0ms)[0m   [0mSELECT "orders".* FROM "orders" INNER JOIN line_items ON orders.id = line_items.order_id WHERE (("line_items".product_id = 3)) [0m
+  [4;36;1mLineItem Load (0.0ms)[0m   [0;1mSELECT * FROM "line_items" WHERE ("line_items".order_id = 1) [0m
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Completed in 266ms (View: 250, DB: 0) | 200 OK [http://localhost/info/who_bought/3.atom]
+
+
+Processing InfoController#who_bought to atom (for 127.0.0.1 at 2011-08-23 16:30:49) [GET]
+  Session ID: 05d7a25fb0922f0edf19d448bdf3bea3
+  Parameters: {"id"=>"2"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering info/who_bought
+  [4;35;1mOrder Load (0.0ms)[0m   [0mSELECT "orders".* FROM "orders" INNER JOIN line_items ON orders.id = line_items.order_id WHERE (("line_items".product_id = 2)) LIMIT 1[0m
+  [4;36;1mOrder Load (0.0ms)[0m   [0;1mSELECT "orders".* FROM "orders" INNER JOIN line_items ON orders.id = line_items.order_id WHERE (("line_items".product_id = 2)) [0m
+  [4;35;1mLineItem Load (0.0ms)[0m   [0mSELECT * FROM "line_items" WHERE ("line_items".order_id = 1) [0m
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/info/who_bought/2.atom]
+
+
+Processing InfoController#who_bought to atom (for 127.0.0.1 at 2011-08-23 16:31:16) [GET]
+  Session ID: 6d84d6c214df13a2c8eb9dc713692d0d
+  Parameters: {"id"=>"2"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendering info/who_bought
+  [4;36;1mOrder Load (0.0ms)[0m   [0;1mSELECT "orders".* FROM "orders" INNER JOIN line_items ON orders.id = line_items.order_id WHERE (("line_items".product_id = 2)) LIMIT 1[0m
+  [4;35;1mOrder Load (0.0ms)[0m   [0mSELECT "orders".* FROM "orders" INNER JOIN line_items ON orders.id = line_items.order_id WHERE (("line_items".product_id = 2)) [0m
+  [4;36;1mLineItem Load (0.0ms)[0m   [0;1mSELECT * FROM "line_items" WHERE ("line_items".order_id = 1) [0m
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Completed in 156ms (View: 109, DB: 0) | 200 OK [http://localhost/info/who_bought/2.atom]
