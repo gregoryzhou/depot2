@@ -8,6 +8,12 @@ class User < ActiveRecord::Base
   
   validate :password_non_blank
   
+  def after_destroy
+    if User.count.zero?
+      raise "Can't delete last user"
+    end
+  end
+  
   def self.authenticate(name, password)
     user = self.find_by_name(name)
     if user
